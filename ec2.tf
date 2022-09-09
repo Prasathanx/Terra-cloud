@@ -18,9 +18,8 @@ data "aws_ami" "dep" {
 
 resource "aws_instance" "New_Poc" {
     ami = data.aws_ami.dep.id
-    instance_type = var.instance_type_list[count.index]
-    count = 2
+    instance_type = "t2.micro"
     tags = {
-        Name = "New_Poc_Data${count.index}"
+        Name = "New_Poc_Data"
     }  
 }
